@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration name="KonKal-Log4j2-TestAutomation-Configuration" status="FATAL">
+	<Properties>
+    	<Property name="taf.console.patternLayout">%highlight{%-5p %d [%t] %c %m%n}{STYLE=Logback}</Property>
+    	<Property name="taf.file.filePattern">${ctx:LogContext}/%d{yyMMdd}-%i-${ctx:LogFile}.zip</Property>
+  	</Properties>
+
+	<Appenders>
+		<Console name="StdOutConsole" target="SYSTEM_OUT" immediateFlush="true">
+			<PatternLayout pattern="${taf.console.patternLayout}" />
+			<ThresholdFilter level="INFO" onMatch="accept" onMismatch="accept" />
+		</Console>
+
+        <Routing name="Routing">
+            <Routes pattern="$${ctx:TestName}">
+                <Route>
+                    <RollingFile name="Rolling-${ctx:TestName}" fileName="${ctx:LogContext}/${ctx:LogFile}"
+                                 filePattern="${taf.file.filePattern}" ignoreExceptions="false">
+						<HtmlLayout title="${ctx:LogFile}" datePattern="%d{DEFAULT}" charset="ISO-8859-1" />
+                        <Policies>
+							<OnStartupTriggeringPolicy />
+                        </Policies>
+						<DefaultRolloverStrategy max="14" />
+                    </RollingFile>
+                </Route>
+            </Routes>
+        </Routing>
+	</Appenders>
+
+	<Loggers>
+        <Root level="INFO">
+			<AppenderRef ref="StdOutConsole" />
+			<AppenderRef ref="Routing" />
+		</Root>
+	</Loggers>
+</Configuration>
