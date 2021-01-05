@@ -1,8 +1,8 @@
 package com.example.core.util;
 
-import com.example.core.gui.iface.export.RequirableElement;
-import com.example.core.gui.iface.export.base.GUIElement;
-import com.example.core.gui.iface.export.base.SimpleGUIElement;
+import com.example.core.gui.iface.RequirableElement;
+import com.example.core.gui.iface.base.GUIElement;
+import com.example.core.gui.iface.base.SimpleGUIElement;
 import io.qameta.allure.Step;
 import org.hamcrest.CoreMatchers;
 import org.hamcrest.Matcher;

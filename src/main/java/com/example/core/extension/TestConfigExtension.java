@@ -5,8 +5,8 @@ import com.example.core.enumeration.element.name.MenuItems;
 import com.example.core.enumeration.system.SystemProps;
 import com.example.core.exception.TestFrameworkException;
 import com.example.core.exception.export.ElementNotPresentException;
-import com.example.core.gui.iface.export.complex.widget.Message;
-import com.example.core.gui.iface.export.simple.MenuItem;
+import com.example.core.gui.iface.complex.widget.Message;
+import com.example.core.gui.iface.simple.MenuItem;
 import com.example.core.util.ScreenshotMaker;
 import com.example.core.util.TestUtil;
 import io.qameta.allure.Allure;
@@ -31,7 +31,6 @@ import static com.example.core.util.GUI.*;
 public class TestConfigExtension implements BeforeTestExecutionCallback, AfterTestExecutionCallback, TestExecutionExceptionHandler {
 
     private static final Logger LOG = LoggerFactory.getLogger(TestConfigExtension.class);
-    private static final File USER_SOURCE = new File("src/main/resources/UserList.xlsx");
     private static final Path REPORTS_ROOT_FOLDER = Path.of(System.getProperty(SystemProps.REPORTS_FOLDER.key(), SystemProps.REPORTS_FOLDER.defaultValue()));
     private static final String LOG_CONTEXT_MAP_KEY = "LogContext";
     private static final String LOG_FILE_MAP_KEY = "LogFile";

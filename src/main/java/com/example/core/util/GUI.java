@@ -1,11 +1,11 @@
 package com.example.core.util;
 
-import com.example.core.gui.element.complex.frame.KKContentFrame;
-import com.example.core.gui.element.complex.frame.KKMenuFrame;
-import com.example.core.gui.element.complex.widget.KKAlertWidget;
-import com.example.core.gui.iface.export.complex.frame.ContentFrame;
-import com.example.core.gui.iface.export.complex.frame.MenuFrame;
-import com.example.core.gui.iface.export.complex.widget.Alert;
+import com.example.core.gui.element.complex.frame.ContentFrameImpl;
+import com.example.core.gui.element.complex.frame.MenuFrameImpl;
+import com.example.core.gui.element.complex.widget.AlertWidgetImpl;
+import com.example.core.gui.iface.complex.frame.ContentFrame;
+import com.example.core.gui.iface.complex.frame.MenuFrame;
+import com.example.core.gui.iface.complex.widget.Alert;
 
 /**
  * This utility class is the entry point for accessing the GUI elements. Cannot be instantiated.
@@ -13,9 +13,9 @@ import com.example.core.gui.iface.export.complex.widget.Alert;
 public class GUI {
 
     //these constants contain proxy objects of main widgets for calling in methods to avoid unnecessary creation of many instances
-    private static final Alert alert = new KKAlertWidget();
-    private static final ContentFrame content = new KKContentFrame();
-    private static final MenuFrame mainMenu = new KKMenuFrame();
+    private static final Alert alert = new AlertWidgetImpl();
+    private static final ContentFrame content = new ContentFrameImpl();
+    private static final MenuFrame mainMenu = new MenuFrameImpl();
 
     private GUI() {
         //prevents creating an instance of utility class

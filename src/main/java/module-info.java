@@ -22,11 +22,11 @@ module taf.core {
 
     exports com.example.core.exception.export;
 
-    exports com.example.core.gui.iface.export;
-    exports com.example.core.gui.iface.export.base;
-    exports com.example.core.gui.iface.export.complex.frame;
-    exports com.example.core.gui.iface.export.complex.widget;
-    exports com.example.core.gui.iface.export.simple;
+    exports com.example.core.gui.iface;
+    exports com.example.core.gui.iface.base;
+    exports com.example.core.gui.iface.complex.frame;
+    exports com.example.core.gui.iface.complex.widget;
+    exports com.example.core.gui.iface.simple;
 
     exports com.example.core.soap;
     exports com.example.core.util;

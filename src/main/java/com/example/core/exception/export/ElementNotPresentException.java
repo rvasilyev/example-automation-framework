@@ -1,6 +1,6 @@
 package com.example.core.exception.export;
 
-import com.example.core.gui.iface.export.base.GUIElement;
+import com.example.core.gui.iface.base.GUIElement;
 
 public class ElementNotPresentException extends RuntimeException{
 
