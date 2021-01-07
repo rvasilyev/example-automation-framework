@@ -146,12 +146,8 @@ public class ScreenshotMaker {
      */
     private static String editScreenshotName(String name) {
         try {
-            String mangledName = name.toLowerCase();
-            mangledName = mangledName
-                    .replace("ä", "ae")
-                    .replace("ü", "ue")
-                    .replace("ö", "oe")
-                    .replace("ß", "ss")
+            String editedName = name.toLowerCase();
+            editedName = editedName
                     .replace(" ", "-")
                     .replace("--", "-")
                     .replace("/", "_")
@@ -163,7 +159,7 @@ public class ScreenshotMaker {
                     .replace("\"", "")
                     .replace("*", "");
 
-            return mangledName;
+            return editedName;
         }catch(NullPointerException e){
             return "screenshot-name-was-null";
         }
