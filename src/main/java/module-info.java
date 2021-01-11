@@ -8,8 +8,6 @@ module taf.core {
     requires io.qameta.allure.commons;
     requires selenium.api;
     requires selenium.support;
-    requires poi;
-    requires poi.ooxml;
     requires selenium.chrome.driver;
     requires selenium.firefox.driver;
     requires org.junit.jupiter.api;

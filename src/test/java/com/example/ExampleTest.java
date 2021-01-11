@@ -16,7 +16,7 @@ import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 
-import java.io.File;
+import java.nio.file.Path;
 
 import static com.example.core.util.GUI.*;
 
@@ -75,7 +75,7 @@ class ExampleTest {
         ExtendedAssertions.assertIsRequired(dropbox1);
         dropbox1.selectFirstValidValue();
 
-        TestStepsUtil.selectSourceFile(new File("examples/example.xml"));
+        TestStepsUtil.selectSourceFile(Path.of("examples").resolve("example.xml"));
         content().button(Buttons.BUTTON2).click();
         if(alert().isPresent()){
             alert().close();

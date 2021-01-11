@@ -107,18 +107,18 @@ public class ScreenshotMaker {
      * @param name the screenshot name
      */
     public static void screenshot(String name) {
-        String mangledName = editScreenshotName(name);
+        String editedName = editScreenshotName(name);
         File screenshotFile = Screenshots.takeScreenShotAsFile();
 
         if(screenshotFile != null) {
             try (FileInputStream fis = new FileInputStream(screenshotFile)) {
-                Allure.addAttachment(mangledName, fis);
+                Allure.addAttachment(editedName, fis);
 
                 if(SEPARATE_SCREENSHOTS_ENABLED){
                     if(CONTEXT.get() == null){
                         throw new TestFrameworkException("Can't save screenshot file: no context specified for current thread.");
                     }
-                    String screenshotName = String.format("%03d", COUNTER.get().getAndIncrement()) + "_" + mangledName + ".png";
+                    String screenshotName = String.format("%03d", COUNTER.get().getAndIncrement()) + "_" + editedName + ".png";
                     byte[] bytes = Files.readAllBytes(screenshotFile.toPath());
                     Path screenshot = CONTEXT.get().resolve(screenshotName);
                     Files.write(screenshot, bytes);
@@ -128,7 +128,7 @@ public class ScreenshotMaker {
                 LOG.error(e.getMessage());
             }
         }else{
-            LOG.error("Failed to save screenshot '{}': screenshot file is null.", mangledName);
+            LOG.error("Failed to save screenshot '{}': screenshot file is null.", editedName);
         }
     }
 

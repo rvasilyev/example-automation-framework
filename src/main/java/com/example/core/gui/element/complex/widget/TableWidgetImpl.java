@@ -90,13 +90,13 @@ public class TableWidgetImpl extends WidgetImpl implements Table {
     }
 
     @Override
-    public int getRowCount(){
+    public int getRowAmount(){
         return findAllRows().size();
     }
 
     @Override
-    public void selectRowCount(TableRowCount tableRowCount){
-        new DropboxImpl(Dropboxes.DROPBOX1.value(), this).selectValue(tableRowCount);
+    public void selectRowAmount(TableRowCount tableRowAmount){
+        new DropboxImpl(Dropboxes.DROPBOX1.value(), this).selectValue(tableRowAmount);
     }
 
     @Override
