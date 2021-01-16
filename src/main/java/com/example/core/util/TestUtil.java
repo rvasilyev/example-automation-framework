@@ -15,8 +15,6 @@ import org.slf4j.LoggerFactory;
 import java.io.File;
 import java.io.FileWriter;
 import java.net.MalformedURLException;
-import java.net.URI;
-import java.net.URISyntaxException;
 import java.net.URL;
 import java.nio.file.Path;
 import java.time.LocalDateTime;
@@ -176,17 +174,23 @@ public class TestUtil {
      */
     public static URL constructUrl(String pathWithoutHostAndPort) {
         try {
-            URI uri = new URI(WebDriverRunner.url());
+            URL url = new URL(WebDriverRunner.url());
 
             StringBuilder stringBuilder = new StringBuilder();
-            stringBuilder.append(uri.getScheme()).append("://").append(uri.getHost());
-            if (uri.getPort() >= 0) {
-                stringBuilder.append(":").append(uri.getPort());
+            stringBuilder.append(url.getProtocol()).append("://").append(url.getHost());
+            if (url.getPort() >= 0) {
+                stringBuilder.append(":").append(url.getPort());
             }
+
+            String slash = "/";
+            if(!pathWithoutHostAndPort.startsWith(slash)){
+                stringBuilder.append(slash);
+            }
+
             stringBuilder.append(pathWithoutHostAndPort);
 
             return new URL(stringBuilder.toString());
-        } catch (URISyntaxException | MalformedURLException e) {
+        } catch (MalformedURLException e) {
             throw new TestFrameworkException(e);
         }
     }
