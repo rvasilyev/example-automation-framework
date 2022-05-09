@@ -91,8 +91,8 @@
                         <allure.version>${allure.version}</allure.version>
                         <junit.jupiter.extensions.autodetection.enabled>true</junit.jupiter.extensions.autodetection.enabled>
                         <allure.results.directory>${project.build.directory}/allure-results</allure.results.directory>
-                        <allure.link.issue.pattern>https://jira.devops.telekom.de/browse/{}</allure.link.issue.pattern>
-                        <allure.link.tms.pattern>https://jira.devops.telekom.de/browse/{}</allure.link.tms.pattern>
+                        <allure.link.issue.pattern>https://jira.example.com/browse/{}</allure.link.issue.pattern>
+                        <allure.link.tms.pattern>https://jira.example.com/browse/{}</allure.link.tms.pattern>
                     </systemPropertyVariables>
                 </configuration>
                 <dependencies>

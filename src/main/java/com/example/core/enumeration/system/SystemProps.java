@@ -19,8 +19,8 @@ public enum SystemProps {
     SAVE_PAGE_SOURCE("selenide.savePageSource", "false"),
     CLICK_VIA_JS("selenide.clickViaJs", "true"),
     ALLURE_RESULTS_DIRECTORY("allure.results.directory", "target/allure-results"),
-    ALLURE_LINK_ISSUE_PATTERN("allure.link.issue.pattern", "https://jira.devops.telekom.de/browse/{}"),
-    ALLURE_LINK_TMS_PATTERN("allure.link.tms.pattern", "https://jira.devops.telekom.de/browse/{}");
+    ALLURE_LINK_ISSUE_PATTERN("allure.link.issue.pattern", "https://jira.example.com/browse/{}"),
+    ALLURE_LINK_TMS_PATTERN("allure.link.tms.pattern", "https://jira.example.com/browse/{}");
 
     private final String key;
     private final String defaultValue;

@@ -38,7 +38,7 @@ public class TemplateReader {
      * @param outputFormat output format for processed template
      * @param baseDir base directory for loading templates
      * @return a {@code Configuration} instance representing current FreeMarker configuration
-     * @throws IOException
+     * @throws IOException, if an IO error occurs
      */
     private static Configuration createFreemarkerConfiguration(OutputFormat outputFormat, File baseDir) throws IOException
     {

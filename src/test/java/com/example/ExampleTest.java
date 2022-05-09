@@ -32,7 +32,7 @@ class ExampleTest {
     })
     @Epic("Example")
     @Feature("UI")
-    @Story("Code demontration")
+    @Story("Code demonstration")
     @Owner("R. Vasilyev")
     @DisplayName("Login/logout emulation")
     @Description("Very long detailed test description.")

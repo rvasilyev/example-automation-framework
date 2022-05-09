@@ -12,11 +12,11 @@ import com.example.core.util.TestUtil;
 import io.qameta.allure.Allure;
 import io.qameta.allure.Step;
 import org.apache.logging.log4j.ThreadContext;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.extension.AfterTestExecutionCallback;
 import org.junit.jupiter.api.extension.BeforeTestExecutionCallback;
 import org.junit.jupiter.api.extension.ExtensionContext;
 import org.junit.jupiter.api.extension.TestExecutionExceptionHandler;
+import org.opentest4j.AssertionFailedError;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -76,7 +76,7 @@ public class TestConfigExtension implements BeforeTestExecutionCallback, AfterTe
     }
 
     @Override
-    @Step("Testfehler ggf. bearbeiten und Test beenden")
+    @Step("Handle test errors if any and end the test")
     public void handleTestExecutionException(ExtensionContext context, Throwable throwable) throws Throwable {
         String errorText = null;
 
@@ -115,7 +115,7 @@ public class TestConfigExtension implements BeforeTestExecutionCallback, AfterTe
 
         if (errorText != null) {
             LOG.error(errorText, throwable);
-            Assertions.fail(errorText, throwable);
+            throw new AssertionFailedError(errorText, throwable);
         } else {
             LOG.error("Error occurred.", throwable);
             throw throwable;
